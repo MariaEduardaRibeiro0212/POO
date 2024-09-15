@@ -33,7 +33,7 @@ public class DezAlunos {
         
         this.nota2 = nota2;
         this.mediaA = (this.nota1 + this.nota2)/2;
-        this.mediaT+=this.mediaA;
+        this.mediaT+=this.mediaA;s
         
        if(this.mediaA < this.menorMedia){
           this.menorMedia = this.mediaA; 
