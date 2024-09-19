@@ -5,6 +5,7 @@
 package br.com.visao;
 
 import br.com.controle.Div;
+import br.com.controle.Media;
 import br.com.controle.Mult;
 import br.com.controle.OperacaoMatematica;
 import br.com.controle.Soma;
@@ -39,6 +40,7 @@ public class Tela extends javax.swing.JFrame {
         jBsubtrair = new javax.swing.JButton();
         jBmultiplicar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jBmedia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +82,13 @@ public class Tela extends javax.swing.JFrame {
             }
         });
 
+        jBmedia.setText("Média");
+        jBmedia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBmediaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,15 +109,17 @@ public class Tela extends javax.swing.JFrame {
                                 .addComponent(jBsomar)
                                 .addGap(36, 36, 36)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTnota2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTvalor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jBsubtrair, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
                                 .addComponent(jBmultiplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTnota2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTvalor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBmedia)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +137,8 @@ public class Tela extends javax.swing.JFrame {
                     .addComponent(jBsomar)
                     .addComponent(jBsubtrair)
                     .addComponent(jBmultiplicar)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jBmedia))
                 .addGap(16, 16, 16)
                 .addComponent(jLresultado)
                 .addContainerGap(142, Short.MAX_VALUE))
@@ -140,6 +152,7 @@ public class Tela extends javax.swing.JFrame {
         Double pvalor1 = Double.valueOf(jTvalor1.getText());
         Double pvalor2 = Double.valueOf(jTvalor1.getText());
         jLresultado.setText("Soma: " + calcule(new Soma(), pvalor1, pvalor2) );
+        jTvalor1.requestFocus();
     }//GEN-LAST:event_jBsomarActionPerformed
 
     private void jBsubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsubtrairActionPerformed
@@ -147,6 +160,7 @@ public class Tela extends javax.swing.JFrame {
         Double pvalor1 = Double.valueOf(jTvalor1.getText());
         Double pvalor2 = Double.valueOf(jTnota2.getText());
         jLresultado.setText("Subtração: " + calcule(new Sub(), pvalor1, pvalor2));
+        jTvalor1.requestFocus();
     }//GEN-LAST:event_jBsubtrairActionPerformed
 
     private void jBmultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBmultiplicarActionPerformed
@@ -154,6 +168,7 @@ public class Tela extends javax.swing.JFrame {
         Double pvalor1 = Double.valueOf(jTvalor1.getText());
         Double pvalor2 = Double.valueOf(jTnota2.getText());
         jLresultado.setText("Multiplicação: " + calcule(new Mult(), pvalor1, pvalor2));
+        jTvalor1.requestFocus();
     }//GEN-LAST:event_jBmultiplicarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -161,7 +176,16 @@ public class Tela extends javax.swing.JFrame {
         Double pvalor1 = Double.valueOf(jTvalor1.getText());
         Double pvalor2 = Double.valueOf(jTnota2.getText());
         jLresultado.setText("Multiplicação: " + calcule(new Div(), pvalor1, pvalor2));
+        jTvalor1.requestFocus();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jBmediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBmediaActionPerformed
+        // TODO add your handling code here:
+        Double pvalor1 = Double.valueOf(jTvalor1.getText());
+        Double pvalor2 = Double.valueOf(jTnota2.getText());
+        jLresultado.setText("Multiplicação: " + calcule(new Media(), pvalor1, pvalor2));
+        jTvalor1.requestFocus();
+    }//GEN-LAST:event_jBmediaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,6 +223,7 @@ public class Tela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBmedia;
     private javax.swing.JButton jBmultiplicar;
     private javax.swing.JButton jBsomar;
     private javax.swing.JButton jBsubtrair;
